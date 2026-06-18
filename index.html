@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trenzas Urbanas y Extensiones</title>
+<style>
+:root{
+--violeta:#6f42c1;
+--lila:#c8a2ff;
+--oscuro:#3b1d5c;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif;}
+body{
+background:linear-gradient(135deg,#4f1d75,#7a3db8,#c59cff);
+color:white;
+min-height:100vh;
+overflow-x:hidden;
+}
+body::before{
+content:'';
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 20% 20%,rgba(255,255,255,.6) 1px,transparent 2px),
+radial-gradient(circle at 80% 40%,rgba(255,255,255,.4) 1px,transparent 2px),
+radial-gradient(circle at 60% 70%,rgba(255,255,255,.5) 1px,transparent 2px);
+background-size:180px 180px;
+filter:blur(1px);
+pointer-events:none;
+}
+
+.sidebar{
+position:fixed;
+left:10px;
+top:10px;
+width:260px;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(12px);
+padding:15px;
+border-radius:20px;
+}
+
+.logo{
+height:120px;
+border:2px dashed rgba(255,255,255,.6);
+border-radius:16px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+margin-bottom:15px;
+}
+
+details{
+margin:8px 0;
+background:rgba(255,255,255,.08);
+padding:10px;
+border-radius:12px;
+}
+
+summary{
+cursor:pointer;
+font-weight:bold;
+}
+
+.main{
+margin-left:290px;
+padding:30px;
+}
+
+.hero{
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:3rem;
+}
+
+.hero h2{
+font-weight:300;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+margin-top:25px;
+}
+
+.photo{
+height:220px;
+border-radius:20px;
+background:rgba(255,255,255,.15);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:18px;
+}
+
+.btn{
+display:inline-block;
+margin:10px;
+padding:14px 22px;
+border-radius:30px;
+text-decoration:none;
+color:white;
+background:linear-gradient(45deg,var(--violeta),var(--lila));
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px) scale(1.05);
+}
+
+.whatsapp{
+position:fixed;
+right:20px;
+bottom:20px;
+background:#25D366;
+padding:16px 24px;
+border-radius:40px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+}
+
+@media(max-width:850px){
+.sidebar{
+position:relative;
+width:95%;
+margin:10px auto;
+left:auto;
+top:auto;
+}
+.main{
+margin-left:0;
+}
+.hero h1{
+font-size:2rem;
+}
+}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+<div class="logo">
+AGREGA AQUÍ TU LOGO
+</div>
+
+<details><summary>Sobre Nosotros</summary>
+<p>Desde octubre de 2024 compartimos el arte de las trenzas afro y buscamos que más personas conozcan este hermoso mundo.</p>
+</details>
+
+<details><summary>Servicios</summary>
+<p>Trenzas con y sin extensiones Kanekalon, estilos urbanos, infantiles y personalizados.</p>
+</details>
+
+<details><summary>Cuidados</summary>
+<p>Lavado con shampoo, secado completo y protección nocturna con pañuelo o gorro.</p>
+</details>
+
+<details><summary>A Domicilio</summary>
+<p>Tarifas según zona y distancia.</p>
+</details>
+
+<details><summary>Redes</summary>
+<p>Instagram: @trenzas.urbanas_fsa</p>
+<p>TikTok: @trenzas.urbanas_fsa</p>
+</details>
+
+<details><summary>Métodos de Pago</summary>
+<p>Transferencia • Tarjeta • Efectivo</p>
+</details>
+</div>
+
+<div class="main">
+<div class="hero">
+<h1>Trenzas Urbanas y Extensiones</h1>
+<h2>Barrio Don Bosco</h2>
+
+<a class="btn" href="https://www.instagram.com/trenzas.urbanas_fsa" target="_blank">Instagram</a>
+<a class="btn" href="https://www.facebook.com/share/1EQPsReN9x/" target="_blank">Facebook</a>
+</div>
+
+<h2>Galería de Trabajos</h2>
+<div class="gallery">
+<div class="photo">Foto 1</div>
+<div class="photo">Foto 2</div>
+<div class="photo">Foto 3</div>
+<div class="photo">Foto 4</div>
+<div class="photo">Foto 5</div>
+<div class="photo">Foto 6</div>
+</div>
+</div>
+
+<a class="whatsapp" href="https://wa.me/543705141113?text=Hola!%20Quiero%20reservar%20un%20turno....">WhatsApp</a>
+
+</body>
+</html>
