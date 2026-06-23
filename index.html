@@ -3,200 +3,291 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trenzas Urbanas y Extensiones</title>
+<title>Trenzas Urbanas</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
-:root{
---violeta:#6f42c1;
---lila:#c8a2ff;
---oscuro:#3b1d5c;
-}
-*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif;}
+
 body{
-background:linear-gradient(135deg,#4f1d75,#7a3db8,#c59cff);
-color:white;
-min-height:100vh;
-overflow-x:hidden;
-}
-body::before{
-content:'';
-position:fixed;
-inset:0;
-background:
-radial-gradient(circle at 20% 20%,rgba(255,255,255,.6) 1px,transparent 2px),
-radial-gradient(circle at 80% 40%,rgba(255,255,255,.4) 1px,transparent 2px),
-radial-gradient(circle at 60% 70%,rgba(255,255,255,.5) 1px,transparent 2px);
-background-size:180px 180px;
-filter:blur(1px);
-pointer-events:none;
+margin:0;
+font-family:'Poppins',sans-serif;
+color:#fff;
+background:linear-gradient(135deg,#9d7ec4,#a88ac0,#b59bd0);
+background-attachment:fixed;
 }
 
-.sidebar{
-position:fixed;
-left:10px;
-top:10px;
-width:260px;
-background:rgba(255,255,255,.12);
-backdrop-filter:blur(12px);
-padding:15px;
-border-radius:20px;
+/* HEADER */
+header{
+text-align:center;
+padding:30px 15px;
 }
 
 .logo{
-height:120px;
-border:2px dashed rgba(255,255,255,.6);
-border-radius:16px;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-margin-bottom:15px;
+width:140px;
+height:140px;
+object-fit:contain;
 }
 
-details{
-margin:8px 0;
-background:rgba(255,255,255,.08);
-padding:10px;
+h1{
+font-family:'Bebas Neue',sans-serif;
+font-size:55px;
+letter-spacing:3px;
+margin:10px 0;
+}
+
+p{
+font-size:16px;
+line-height:1.5;
+}
+
+/* MENU */
+.menu{
+position:fixed;
+top:15px;
+left:15px;
+font-size:30px;
+cursor:pointer;
+z-index:1000;
+}
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:0;
+height:100%;
+background:#6f4a8e;
+overflow:hidden;
+transition:.3s;
+padding-top:60px;
+z-index:999;
+}
+
+nav a{
+display:block;
+color:#fff;
+padding:15px;
+text-decoration:none;
+}
+
+/* SECCIONES */
+section{
+padding:25px 15px;
+}
+
+.card{
+background:rgba(255,255,255,0.12);
+padding:15px;
+border-radius:15px;
+margin-bottom:15px;
+backdrop-filter: blur(5px);
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+/* PRODUCTO */
+.producto img{
+width:100%;
+height:180px;
+object-fit:cover;
 border-radius:12px;
 }
 
-summary{
+button{
+background:#25D366;
+border:none;
+padding:10px;
+border-radius:8px;
+color:#fff;
+cursor:pointer;
+width:100%;
+margin-top:10px;
+}
+
+/* CARRITO */
+.carrito{
+position:fixed;
+top:20px;
+right:20px;
+background:#fff;
+color:#000;
+padding:10px 15px;
+border-radius:10px;
 cursor:pointer;
 font-weight:bold;
 }
 
-.main{
-margin-left:290px;
-padding:30px;
-}
-
-.hero{
-text-align:center;
-padding:20px;
-}
-
-.hero h1{
-font-size:3rem;
-}
-
-.hero h2{
-font-weight:300;
-}
-
-.gallery{
+/* GALERIA */
+.galeria{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:15px;
-margin-top:25px;
+grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+gap:10px;
 }
 
-.photo{
-height:220px;
-border-radius:20px;
-background:rgba(255,255,255,.15);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:18px;
+.galeria img{
+width:100%;
+aspect-ratio:1/1;
+object-fit:cover;
+border-radius:10px;
 }
 
-.btn{
-display:inline-block;
-margin:10px;
-padding:14px 22px;
-border-radius:30px;
-text-decoration:none;
-color:white;
-background:linear-gradient(45deg,var(--violeta),var(--lila));
-transition:.3s;
-}
-
-.btn:hover{
-transform:translateY(-3px) scale(1.05);
-}
-
-.whatsapp{
+/* WHATSAPP FLOAT */
+.float{
 position:fixed;
-right:20px;
 bottom:20px;
+right:20px;
 background:#25D366;
-padding:16px 24px;
-border-radius:40px;
+color:#fff;
+padding:12px 15px;
+border-radius:50px;
 text-decoration:none;
-color:white;
 font-weight:bold;
 }
 
-@media(max-width:850px){
-.sidebar{
-position:relative;
-width:95%;
-margin:10px auto;
-left:auto;
-top:auto;
-}
-.main{
-margin-left:0;
-}
-.hero h1{
-font-size:2rem;
-}
-}
 </style>
 </head>
+
 <body>
 
-<div class="sidebar">
-<div class="logo">
-AGREGA AQUÍ TU LOGO
+<!-- MENU -->
+<div class="menu" onclick="nav.style.width='250px'">☰</div>
+
+<nav id="nav">
+<a href="#" onclick="nav.style.width='0'">Cerrar ✖</a>
+<a href="#inicio">Inicio</a>
+<a href="#servicios">Servicios</a>
+<a href="#promos">Promos</a>
+<a href="#galeria">Galería</a>
+<a href="#redes">Redes</a>
+</nav>
+
+<!-- CARRITO -->
+<div class="carrito" onclick="abrirCarrito()">
+🛒 Turno (<span id="count">0</span>)
 </div>
 
-<details><summary>Sobre Nosotros</summary>
-<p>Desde octubre de 2024 compartimos el arte de las trenzas afro y buscamos que más personas conozcan este hermoso mundo.</p>
-</details>
+<!-- HEADER -->
+<header id="inicio">
+<img src="logo.png" class="logo">
+<h1>Trenzas Urbanas</h1>
+<p>Transformamos tu estilo con trenzas personalizadas para todas las edades.</p>
+</header>
 
-<details><summary>Servicios</summary>
-<p>Trenzas con y sin extensiones Kanekalon, estilos urbanos, infantiles y personalizados.</p>
-</details>
+<!-- SERVICIOS -->
+<section id="servicios">
+<h2>Servicios</h2>
+<div class="grid" id="lista"></div>
+</section>
 
-<details><summary>Cuidados</summary>
-<p>Lavado con shampoo, secado completo y protección nocturna con pañuelo o gorro.</p>
-</details>
-
-<details><summary>A Domicilio</summary>
-<p>Tarifas según zona y distancia.</p>
-</details>
-
-<details><summary>Redes</summary>
-<p>Instagram: @trenzas.urbanas_fsa</p>
-<p>TikTok: @trenzas.urbanas_fsa</p>
-</details>
-
-<details><summary>Métodos de Pago</summary>
-<p>Transferencia • Tarjeta • Efectivo</p>
-</details>
+<!-- PROMOS -->
+<section id="promos">
+<h2>Promociones</h2>
+<div class="card">
+<p>Agregá aquí tus promos del mes 💜</p>
 </div>
+</section>
 
-<div class="main">
-<div class="hero">
-<h1>Trenzas Urbanas y Extensiones</h1>
-<h2>Barrio Don Bosco</h2>
+<!-- GALERIA -->
+<section id="galeria">
+<h2>Galería</h2>
+<div class="galeria">
 
-<a class="btn" href="https://www.instagram.com/trenzas.urbanas_fsa" target="_blank">Instagram</a>
-<a class="btn" href="https://www.facebook.com/share/1EQPsReN9x/" target="_blank">Facebook</a>
+<img src="img1.jpg">
+<img src="img2.jpg">
+<img src="img3.jpg">
+<img src="img4.jpg">
+
 </div>
+</section>
 
-<h2>Galería de Trabajos</h2>
-<div class="gallery">
-<div class="photo">Foto 1</div>
-<div class="photo">Foto 2</div>
-<div class="photo">Foto 3</div>
-<div class="photo">Foto 4</div>
-<div class="photo">Foto 5</div>
-<div class="photo">Foto 6</div>
-</div>
-</div>
+<!-- REDES -->
+<section id="redes">
+<h2>Redes Sociales</h2>
 
-<a class="whatsapp" href="https://wa.me/543705141113?text=Hola!%20Quiero%20reservar%20un%20turno....">WhatsApp</a>
+<p>Instagram: <a href="https://instagram.com/tuusuario" target="_blank">@tuusuario</a></p>
+<p>TikTok: <a href="https://tiktok.com/@tuusuario" target="_blank">@tuusuario</a></p>
+<p>Facebook: <a href="https://facebook.com/tuusuario" target="_blank">Tu página</a></p>
+
+</section>
+
+<a class="float" href="https://wa.me/543705141113" target="_blank">WhatsApp</a>
+
+<script>
+
+const WHATSAPP = "543705141113";
+
+let carrito = [];
+
+const servicios = [
+["Frontales con Diseño","15000","Diseño frontal personalizado","sin"],
+["Box Braids","120000","Trenzas completas con extensión","con"],
+["Coronas","20000","Trenzas tipo corona","sin"],
+["Fulanis","120000","Estilo con diseño africano","con"]
+];
+
+const lista = document.getElementById("lista");
+
+servicios.forEach((s,i)=>{
+lista.innerHTML += `
+<div class="card producto">
+<img src="img${i+1}.jpg">
+<h3>${s[0]}</h3>
+<p><b>$${s[1]}</b></p>
+<p>${s[2]}</p>
+<button onclick="agregar('${s[0]}','${s[1]}','${s[3]}')">Agregar</button>
+</div>
+`;
+});
+
+function agregar(nombre,precio,tipo){
+carrito.push({nombre,precio,tipo});
+document.getElementById("count").innerText = carrito.length;
+}
+
+function abrirCarrito(){
+
+if(carrito.length === 0){
+alert("No tenés servicios en el carrito");
+return;
+}
+
+let mensaje = "Hola! Quiero reservar:%0A%0A";
+let totalSeña = 0;
+let tieneExt = false;
+
+carrito.forEach(c=>{
+mensaje += "• " + c.nombre + " - $" + c.precio + "%0A";
+if(c.tipo==="con") tieneExt = true;
+});
+
+let seña = tieneExt ? 30000 : 5000;
+
+let pago = confirm(
+"RESUMEN DE TURNO\n\n" +
+mensaje.replaceAll("%0A","\n") +
+"\nSeña: $" + seña +
+"\n\nAceptar = WhatsApp\nCancelar = Mercado Pago"
+);
+
+if(pago){
+
+window.open("https://wa.me/" + WHATSAPP + "?text=" + mensaje);
+
+}else{
+
+window.open("https://mpago.la/1A9AMqs");
+
+}
+
+}
+
+</script>
 
 </body>
 </html>
