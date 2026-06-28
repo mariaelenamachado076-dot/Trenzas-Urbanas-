@@ -5,288 +5,231 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trenzas Urbanas</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
 <style>
-
 body{
-margin:0;
-font-family:'Poppins',sans-serif;
-color:#fff;
-background:linear-gradient(135deg,#9d7ec4,#a88ac0,#b59bd0);
-background-attachment:fixed;
+  margin:0;
+  font-family:Arial;
+  background:#f3e8ff;
 }
 
 /* HEADER */
 header{
-text-align:center;
-padding:30px 15px;
+  background:#6a0dad;
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  padding:15px;
+  align-items:center;
 }
 
-.logo{
-width:140px;
-height:140px;
-object-fit:contain;
+.menu-btn{
+  font-size:26px;
+  cursor:pointer;
 }
 
-h1{
-font-family:'Bebas Neue',sans-serif;
-font-size:55px;
-letter-spacing:3px;
-margin:10px 0;
-}
-
-p{
-font-size:16px;
-line-height:1.5;
-}
-
-/* MENU */
 .menu{
-position:fixed;
-top:15px;
-left:15px;
-font-size:30px;
-cursor:pointer;
-z-index:1000;
+  position:absolute;
+  top:60px;
+  left:0;
+  background:white;
+  display:none;
+  flex-direction:column;
+  width:200px;
 }
 
-nav{
-position:fixed;
-top:0;
-left:0;
-width:0;
-height:100%;
-background:#6f4a8e;
-overflow:hidden;
-transition:.3s;
-padding-top:60px;
-z-index:999;
-}
-
-nav a{
-display:block;
-color:#fff;
-padding:15px;
-text-decoration:none;
+.menu a{
+  padding:10px;
+  text-decoration:none;
+  color:black;
+  border-bottom:1px solid #ddd;
 }
 
 /* SECCIONES */
 section{
-padding:25px 15px;
+  padding:30px;
+}
+
+.home{
+  text-align:center;
+  background:linear-gradient(#6a0dad,#b57edc);
+  color:white;
+}
+
+/* CARDS */
+.grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
 }
 
 .card{
-background:rgba(255,255,255,0.12);
-padding:15px;
-border-radius:15px;
-margin-bottom:15px;
-backdrop-filter: blur(5px);
+  background:white;
+  padding:15px;
+  border-radius:10px;
+  width:180px;
 }
 
-/* GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px;
+/* BOTONES */
+button, .btn{
+  background:#6a0dad;
+  color:white;
+  border:none;
+  padding:10px;
+  margin-top:10px;
+  border-radius:5px;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
 }
 
-/* PRODUCTO */
-.producto img{
-width:100%;
-height:180px;
-object-fit:cover;
-border-radius:12px;
-}
-
-button{
-background:#25D366;
-border:none;
-padding:10px;
-border-radius:8px;
-color:#fff;
-cursor:pointer;
-width:100%;
-margin-top:10px;
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  font-size:40px;
 }
 
 /* CARRITO */
-.carrito{
-position:fixed;
-top:20px;
-right:20px;
-background:#fff;
-color:#000;
-padding:10px 15px;
-border-radius:10px;
-cursor:pointer;
-font-weight:bold;
+.cart{
+  position:fixed;
+  top:0;
+  right:0;
+  width:300px;
+  height:100%;
+  background:white;
+  display:none;
+  padding:20px;
+  overflow:auto;
 }
-
-/* GALERIA */
-.galeria{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
-gap:10px;
-}
-
-.galeria img{
-width:100%;
-aspect-ratio:1/1;
-object-fit:cover;
-border-radius:10px;
-}
-
-/* WHATSAPP FLOAT */
-.float{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:#fff;
-padding:12px 15px;
-border-radius:50px;
-text-decoration:none;
-font-weight:bold;
-}
-
 </style>
+
 </head>
 
 <body>
 
-<!-- MENU -->
-<div class="menu" onclick="nav.style.width='250px'">☰</div>
+<header>
+  <div>💜 Trenzas Urbanas</div>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-<nav id="nav">
-<a href="#" onclick="nav.style.width='0'">Cerrar ✖</a>
-<a href="#inicio">Inicio</a>
-<a href="#servicios">Servicios</a>
-<a href="#promos">Promos</a>
-<a href="#galeria">Galería</a>
-<a href="#redes">Redes</a>
-</nav>
-
-<!-- CARRITO -->
-<div class="carrito" onclick="abrirCarrito()">
-🛒 Turno (<span id="count">0</span>)
-</div>
-
-<!-- HEADER -->
-<header id="inicio">
-<img src="logo.png" class="logo">
-<h1>Trenzas Urbanas</h1>
-<p>Transformamos tu estilo con trenzas personalizadas para todas las edades.</p>
+  <div id="menu" class="menu">
+    <a href="#home">Inicio</a>
+    <a href="#catalogo">Catálogo</a>
+    <a onclick="openCart()">🛒 Carrito (<span id="count">0</span>)</a>
+  </div>
 </header>
 
-<!-- SERVICIOS -->
-<section id="servicios">
-<h2>Servicios</h2>
-<div class="grid" id="lista"></div>
+<!-- HOME -->
+<section id="home" class="home">
+  <h1>Trenzas Urbanas</h1>
+  <p>“Creamos estilos únicos con trenzas personalizadas”</p>
 </section>
 
-<!-- PROMOS -->
-<section id="promos">
-<h2>Promociones</h2>
-<div class="card">
-<p>Agregá aquí tus promos del mes 💜</p>
-</div>
-</section>
+<!-- CATALOGO -->
+<section id="catalogo">
+<h2>Catálogo</h2>
 
-<!-- GALERIA -->
-<section id="galeria">
-<h2>Galería</h2>
-<div class="galeria">
+<div class="grid">
 
-<img src="img1.jpg">
-<img src="img2.jpg">
-<img src="img3.jpg">
-<img src="img4.jpg">
+  <div class="card">
+    <h3>2 Trenzas Boxeadoras</h3>
+    <p>$10.000</p>
+    <button onclick="add('2 Trenzas Boxeadoras',10000)">Agregar</button>
+  </div>
+
+  <div class="card">
+    <h3>4 Trenzas</h3>
+    <p>$15.000</p>
+    <button onclick="add('4 Trenzas',15000)">Agregar</button>
+  </div>
+
+  <div class="card">
+    <h3>Coleta Alta</h3>
+    <p>$12.000</p>
+    <button onclick="add('Coleta Alta',12000)">Agregar</button>
+  </div>
 
 </div>
 </section>
 
 <!-- REDES -->
-<section id="redes">
-<h2>Redes Sociales</h2>
+<section>
+<h2>Redes</h2>
 
-<p>Instagram: <a href="https://instagram.com/tuusuario" target="_blank">@tuusuario</a></p>
-<p>TikTok: <a href="https://tiktok.com/@tuusuario" target="_blank">@tuusuario</a></p>
-<p>Facebook: <a href="https://facebook.com/tuusuario" target="_blank">Tu página</a></p>
+<a class="btn" target="_blank"
+href="https://www.instagram.com/trenzas.urbanas_fsa?igsh=ZGtpM3N5NXdtMTlp">
+Instagram
+</a>
 
+<a class="btn" target="_blank"
+href="https://www.facebook.com/share/17pdMpvwe4/">
+Facebook
+</a>
+
+<p>📍 Formosa Capital - Fotheringham 1095, Barrio Don Bosco</p>
 </section>
 
-<a class="float" href="https://wa.me/543705141113" target="_blank">WhatsApp</a>
+<!-- WHATSAPP -->
+<a class="whatsapp"
+href="https://wa.me/5493705141113?text=Hola%20quiero%20info%20sobre%20trenzas"
+target="_blank">🟢</a>
+
+<!-- CARRITO -->
+<div id="cart" class="cart">
+  <h2>Carrito</h2>
+  <div id="items"></div>
+  <h3>Total: $<span id="total">0</span></h3>
+
+  <button onclick="send()">Enviar WhatsApp</button>
+  <button onclick="closeCart()">Cerrar</button>
+</div>
 
 <script>
+let cart = [];
 
-const WHATSAPP = "543705141113";
-
-let carrito = [];
-
-const servicios = [
-["Frontales con Diseño","15000","Diseño frontal personalizado","sin"],
-["Box Braids","120000","Trenzas completas con extensión","con"],
-["Coronas","20000","Trenzas tipo corona","sin"],
-["Fulanis","120000","Estilo con diseño africano","con"]
-];
-
-const lista = document.getElementById("lista");
-
-servicios.forEach((s,i)=>{
-lista.innerHTML += `
-<div class="card producto">
-<img src="img${i+1}.jpg">
-<h3>${s[0]}</h3>
-<p><b>$${s[1]}</b></p>
-<p>${s[2]}</p>
-<button onclick="agregar('${s[0]}','${s[1]}','${s[3]}')">Agregar</button>
-</div>
-`;
-});
-
-function agregar(nombre,precio,tipo){
-carrito.push({nombre,precio,tipo});
-document.getElementById("count").innerText = carrito.length;
+function toggleMenu(){
+  let menu = document.getElementById("menu");
+  menu.style.display = menu.style.display==="flex"?"none":"flex";
 }
 
-function abrirCarrito(){
-
-if(carrito.length === 0){
-alert("No tenés servicios en el carrito");
-return;
+function add(name,price){
+  cart.push({name,price});
+  update();
 }
 
-let mensaje = "Hola! Quiero reservar:%0A%0A";
-let totalSeña = 0;
-let tieneExt = false;
+function update(){
+  document.getElementById("count").innerText = cart.length;
 
-carrito.forEach(c=>{
-mensaje += "• " + c.nombre + " - $" + c.precio + "%0A";
-if(c.tipo==="con") tieneExt = true;
-});
+  let items = document.getElementById("items");
+  items.innerHTML="";
 
-let seña = tieneExt ? 30000 : 5000;
+  let total=0;
 
-let pago = confirm(
-"RESUMEN DE TURNO\n\n" +
-mensaje.replaceAll("%0A","\n") +
-"\nSeña: $" + seña +
-"\n\nAceptar = WhatsApp\nCancelar = Mercado Pago"
-);
+  cart.forEach(i=>{
+    total+=i.price;
+    items.innerHTML+=`<p>${i.name} - $${i.price}</p>`;
+  });
 
-if(pago){
-
-window.open("https://wa.me/" + WHATSAPP + "?text=" + mensaje);
-
-}else{
-
-window.open("https://mpago.la/1A9AMqs");
-
+  document.getElementById("total").innerText=total;
 }
 
+function openCart(){
+  document.getElementById("cart").style.display="block";
 }
 
+function closeCart(){
+  document.getElementById("cart").style.display="none";
+}
+
+function send(){
+  let msg="Hola quiero estos servicios:%0A";
+
+  cart.forEach(i=>{
+    msg+=`- ${i.name} $${i.price}%0A`;
+  });
+
+  window.open("https://wa.me/5493705141113?text="+msg,"_blank");
+}
 </script>
 
 </body>
